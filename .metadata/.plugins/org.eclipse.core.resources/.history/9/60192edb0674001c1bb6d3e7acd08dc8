@@ -1,0 +1,7 @@
+package Banco;
+
+public class Corrente extends Conta {
+	public Corrente(int agencia,int conta,int dv) {
+		super(agencia, conta, dv);
+	}
+}

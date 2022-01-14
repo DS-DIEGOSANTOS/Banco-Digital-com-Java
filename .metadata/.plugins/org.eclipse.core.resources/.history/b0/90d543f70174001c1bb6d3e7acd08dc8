@@ -1,0 +1,11 @@
+package Conta;
+
+public class poupança extends Conta{
+	
+	public poupança(int agencia, int conta,int dv) {
+		super(agencia, conta, dv);
+	}
+	
+	
+
+}

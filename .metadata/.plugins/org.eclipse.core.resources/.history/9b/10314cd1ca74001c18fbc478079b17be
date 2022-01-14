@@ -1,0 +1,13 @@
+package Banco;
+
+public class Conta {
+	
+	final Cliente cliente;
+	
+	public Conta(String nome, int conta) {
+		this.cliente = new Cliente(nome,conta);
+	}
+	
+	
+
+}

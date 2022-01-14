@@ -1,0 +1,50 @@
+package Conta;
+
+public class Conta {
+	
+	//declarações de variaveis
+	private int agencia;
+	private int conta;
+	private int dv;
+	private int saldo=0;
+	
+	//gerando um contrutor 
+	protected Conta(int agencia,int conta,int dv) {
+		this.agencia = agencia;
+		this.conta = conta;
+		this.dv = dv;
+	}
+	
+
+	//getters e setters
+	public int getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(int agencia) {
+		this.agencia = agencia;
+	}
+	public int getConta() {
+		return conta;
+	}
+	public void setConta(int conta) {
+		this.conta = conta;
+	}
+	public int getDv() {
+		return dv;
+	}
+	public void setDv(int dv) {
+		this.dv = dv;
+	}
+	public int getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(int saldo) {
+		this.saldo = saldo;
+	}
+	
+	
+	
+	
+	
+
+}

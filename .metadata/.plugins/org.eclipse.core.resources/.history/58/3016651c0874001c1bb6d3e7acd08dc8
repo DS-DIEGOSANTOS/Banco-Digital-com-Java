@@ -1,0 +1,61 @@
+package Banco;
+
+public class Conta {
+
+	//declarações de variaveis
+	public int agencia;
+	public int conta;
+	public int dv;
+	private double saldo=0;
+	
+	//gerando um contrutor 
+	protected Conta(int agencia,int conta,int dv) {
+		this.agencia = agencia;
+		this.conta = conta;
+		this.dv = dv;
+	}
+	
+	//serviços bancarios
+	
+	public boolean sacar(double valor) {
+		if(getSaldo()>=valor && valor>0) {
+			double saldo = getSaldo() - valor;
+			setSaldo(saldo);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean depositar(double valor) {
+		if(valor >0) {
+			double saldo = getSaldo() + valor;
+			setSaldo(saldo);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean tranferencia(double valor, int Agencia, int contaDeDestino) {
+		if(getSaldo()>=valor && valor>0) {
+			double saldo = getSaldo()-valor;
+			setSaldo(saldo);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+
+	//getters e setters
+	
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	
+
+}

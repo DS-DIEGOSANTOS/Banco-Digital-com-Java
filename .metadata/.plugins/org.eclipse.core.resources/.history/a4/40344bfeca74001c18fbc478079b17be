@@ -1,0 +1,60 @@
+package Banco;
+
+import java.util.ArrayDeque;
+
+public abstract class Conta {
+	
+	final Cliente cliente;
+	final ArrayDeque<String> extratos = new ArrayDeque<String>();
+	
+	protected Conta(String nome, int conta,String operação) {
+		this.cliente = new Cliente(nome,conta,operação);
+	}
+	
+	
+	//serviços bancarios
+	public boolean deposito(double valor) {
+		if(valor>0) {
+			valor +=cliente.getSaldo();
+			cliente.setSaldo(valor);
+			String extrato = "Deposito:"+valor;
+			this.extratos.add(extrato);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean sacar(double valor) {
+		if(cliente.getSaldo()>=valor && valor>0) {
+			valor = cliente.getSaldo() - valor;
+			cliente.setSaldo(valor);
+			String extrato = "sacar:"+valor;
+			this.extratos.add(extrato);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	
+	public boolean transferencia(double valor, Conta conta) {
+		if(cliente.getSaldo()>=valor && valor >0 ) {
+			valor = cliente.getSaldo() - valor;
+			cliente.setSaldo(valor);
+			conta.deposito(valor);
+			String extrato = "trandferencia:"+valor "conta"+conta.cliente.getConta();
+			this.extratos.add(extrato);
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void extrato() {
+		for (String extrato : extratos) {
+			System.out.println(extrato);
+		}
+	}
+
+}
